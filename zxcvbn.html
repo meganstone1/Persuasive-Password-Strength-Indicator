@@ -1,0 +1,24 @@
+<html>
+  <head>
+    <script src="https://cdn.jsdelivr.net/npm/@zxcvbn-ts/core@2.0.0/dist/zxcvbn-ts.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@zxcvbn-ts/language-common@2.0.0/dist/zxcvbn-ts.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@zxcvbn-ts/language-en@2.0.0/dist/zxcvbn-ts.js"></script>
+  </head>
+  <body>
+    <script>
+      ;(function () {
+        // all package will be available under zxcvbnts
+        const options = {
+          translations: zxcvbnts['language-en'].translations,
+          graphs: zxcvbnts['language-common'].adjacencyGraphs,
+          dictionary: {
+            ...zxcvbnts['language-common'].dictionary,
+            ...zxcvbnts['language-en'].dictionary,
+          },
+        }
+        zxcvbnts.core.zxcvbnOptions.setOptions(options)
+        console.log(zxcvbnts.core.zxcvbn('somePassword'))
+      })()
+    </script>
+  </body>
+</html>
