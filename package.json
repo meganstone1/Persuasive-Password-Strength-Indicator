@@ -1,0 +1,29 @@
+{
+  "name": "Persuasive-Password-Strength-Indicator-1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "background.js",
+  "dependencies": {
+    "browserify": "^17.0.0",
+    "uglifyify": "^5.0.2",
+    "zxcvbn": "^4.4.2"
+  },
+  "devDependencies": {
+    "webpack": "^5.77.0",
+    "webpack-cli": "^5.0.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/meganstone1/Persuasive-Password-Strength-Indicator.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/meganstone1/Persuasive-Password-Strength-Indicator/issues"
+  },
+  "homepage": "https://github.com/meganstone1/Persuasive-Password-Strength-Indicator#readme"
+}
