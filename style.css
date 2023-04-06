@@ -2,9 +2,25 @@
     position: absolute;
     z-index: 9999;
     padding: 10px;
-    background-color: #ffffff;
+    background-color: #ffffffcb;
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
-    border-radius: 5px;
-    font-size: 14px;
+    border-radius: 10px;
+    font-size: 16px;
     white-space: pre-line;
+    line-height: 26pt;
+    font-family: Arial, sans-serif;
+
   }
+.RecBox{
+    position: absolute;
+    z-index: 9999;
+    padding: 10px;
+    background-color: #ffffffcb;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    font-size: 16px;
+    white-space: pre-line;
+    line-height: 26pt;
+    font-family: Arial, sans-serif;
+ 
+}

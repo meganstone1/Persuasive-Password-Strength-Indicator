@@ -1,9 +1,10 @@
-import { zxcvbnAsync, zxcvbnOptions, debounce } from '@zxcvbn-ts/core'
-import zxcvbnCommonPackage from '@zxcvbn-ts/language-common'
-import zxcvbnEnPackage from '@zxcvbn-ts/language-en'
-import matcherPwnedFactory from '@zxcvbn-ts/matcher-pwned'
+import { zxcvbnAsync, zxcvbnOptions, debounce } from '@zxcvbn-ts/core';
+import zxcvbnCommonPackage from '@zxcvbn-ts/language-common';
+import zxcvbnEnPackage from '@zxcvbn-ts/language-en';
+import matcherPwnedFactory from '@zxcvbn-ts/matcher-pwned';
 
-let password = 'somePassword'
+var randomWords = require('random-words');
+let password = '';
 
 const options = {
   translations: zxcvbnEnPackage.translations,
@@ -12,34 +13,58 @@ const options = {
     ...zxcvbnCommonPackage.dictionary,
     ...zxcvbnEnPackage.dictionary,
   },
-}
-const matcherPwned = matcherPwnedFactory(fetch, zxcvbnOptions)
-zxcvbnOptions.setOptions(options)
-zxcvbnOptions.addMatcher('pwned', matcherPwned)
-
-
+};
+const matcherPwned = matcherPwnedFactory(fetch, zxcvbnOptions);
+zxcvbnOptions.setOptions(options);
+zxcvbnOptions.addMatcher('pwned', matcherPwned);
 
 const box = document.createElement('div');
 box.classList.add('box');
 document.body.appendChild(box);
-
 box.style.position = 'fixed';
 box.style.top = '-9999px';
 box.style.left = '-9999px';
 var passwordFacts = [];
+
+const RecBox = document.createElement('div');
+RecBox.classList.add('RecBox');
+document.body.appendChild(RecBox);
+RecBox.style.position = 'fixed';
+RecBox.style.top = '-9999px';
+RecBox.style.left = '-9999px';
+document.addEventListener("keyup", function(e) {
+  if (e.target.type === 'password')  {
+    setTimeout(() => {
+      var inputField = document.activeElement;
+      const inputRectb2 = inputField.getBoundingClientRect();
+      const scrollTopb2 = document.documentElement.scrollTop || document.body.scrollTop;
+      const topb2 = inputRectb2.top + scrollTopb2;
+      const leftb2 = inputRectb2.right - 500;
+      RecBox.style.top = `${topb2}px`;
+      RecBox.style.left = `${leftb2}px`;
+      var passwordSuggestion = randomWords(4);
+      for(var i = 0 ; i < passwordSuggestion.length ; i++){
+              passwordSuggestion[i] = passwordSuggestion[i].charAt(0).toUpperCase() + passwordSuggestion[i].substr(1);
+            }       
+      var suggestionMessage = "Strong Password Suggestion: " ;
+      passwordSuggestion = passwordSuggestion.join('');
+      var passwordSuggestionArr = [suggestionMessage, passwordSuggestion];
+      passwordSuggestionArr = passwordSuggestionArr.join('\r\n');
+      RecBox.textContent = passwordSuggestionArr;
+    }, "3000");
+}},{once:true});
+
+
 document.addEventListener("keyup", function(e) {
     if (e.target.type === 'password')  {
       password = e.target.value;
       password = zxcvbnAsync(password);
       password.then((value) => {
-          console.log(value);
           var value1 = String(value.password);
           const sha1Hash = Sha1.hash(value1);
           var prefix = sha1Hash.substring(0, 5);
           var suffix = (sha1Hash.substring(5)).toUpperCase();
-          console.log(suffix);
           var url = 'https://api.pwnedpasswords.com/range/'+prefix;
-          console.log(url);
           let breachedCountMessage = null;
           fetch(url).then((response) => response.text())
           .then((data) => {
@@ -49,20 +74,20 @@ document.addEventListener("keyup", function(e) {
               if (hashSuffix === suffix) {
                 const breachedCount = parseInt(count);
                 if (breachedCount > 0) {
-                 breachedCountMessage = (`Your password has been breached ${breachedCount} times`);
+                 breachedCountMessage = ("Your password has been breached " + breachedCount + " times");
                 }
               }
               
             }
           })
           .finally(() => {
-            var crackTime = "Your password can be hacked in " + value.crackTimesDisplay.offlineSlowHashing1e4PerSecond;
-            passwordFacts = [crackTime, value.feedback.warning, breachedCountMessage];
+            var crackTime = "Your password can be hacked in " +  value.crackTimesDisplay.offlineSlowHashing1e4PerSecond;
+            passwordFacts = [crackTime , breachedCountMessage];
             var inputField = document.activeElement;
             const inputRect = inputField.getBoundingClientRect();
             const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
             const top = inputRect.top + scrollTop;
-            const left = inputRect.right + 80;
+            const left = inputRect.right + 70;
             if (value.password == ''){
               box.style.top = '-9999px';
               box.style.left = '-9999px';
@@ -220,3 +245,5 @@ document.addEventListener("keyup", function(e) {
   /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  */
   if (typeof module != 'undefined' && module.exports) module.exports = Sha1; // CommonJs export
   if (typeof define == 'function' && define.amd) define([], function() { return Sha1; }); // AMD
+
+//http://www.java2s.com/example/nodejs/security/sha1-hash-function-reference-implementation.html 
