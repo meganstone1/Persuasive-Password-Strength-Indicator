@@ -2,10 +2,10 @@
     "manifest_version": 2,
     "name": "Persuasive Password Strength Indicator",
     "version": "1.0",
-    "description": "An extension that alerts when the password box is clicked on",
+    "description": "An extension that persuades you to use stronger passwords",
 
     "permissions": [
-      "activeTab","storage", "https://haveibeenpwned.com/*"
+      "activeTab","storage", "https://api.pwnedpasswords.com/range/*"
     ],
 
     "content_scripts": [
