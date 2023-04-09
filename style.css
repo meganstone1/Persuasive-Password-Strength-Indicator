@@ -1,6 +1,12 @@
-
-
-
+.center {
+    display: block;
+    width: 50%;
+    z-index: 9999;
+    margin-left: auto;
+    margin-right: auto;
+    position: absolute;
+    top: 0;
+  }
 
 .box {
     position: absolute;
