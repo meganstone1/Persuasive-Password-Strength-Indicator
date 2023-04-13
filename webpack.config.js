@@ -1,6 +1,6 @@
 module.exports = {
     target: 'node',
     output: {
-      filename: 'main.js'
+      filename: 'PersuasiveEyesBundle.js'
     }
   };

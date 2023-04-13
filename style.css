@@ -7,15 +7,25 @@
     top: 0;
     left: 33%;
   }
-
-.box {
-    position: absolute;
-    z-index: 9999;
+.strengthBox{
+  z-index: 9999;
     padding: 10px;
-    background-color: #ffffffcb;
+    background-color: #ffffff;
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
     border-radius: 10px;
     font-size: 16px;
+    white-space: pre-line;
+    line-height: 26pt;
+    font-family: Arial, sans-serif;
+}
+
+.box {
+    z-index: 9999;
+    padding: 10px;
+    background-color: #ffffff;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    font-size: 12px;
     white-space: pre-line;
     line-height: 26pt;
     font-family: Arial, sans-serif;
@@ -23,27 +33,25 @@
   }
 
 .RecBox{
+    font-weight: bold;
     text-align: center;
-    position: absolute;
-    height: 13%;
+    height: 10%;
     z-index: 9999;
-    padding: 10px;
-    background-color: #ffffffcb;
+    background-color: #ffffff;
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
     border-radius: 10px;
-    font-size: 16px;
+    font-size: 12px;
     white-space: pre-line;
-    line-height: 26pt;
+    line-height: 20pt;
     font-family: Arial, sans-serif;
-    width: 325px;
+    width: 20%;
 }
 .RecBoxEyes{
   text-align: center;
-  position: absolute;
-  height: 120px;
+  height: 12%;
   z-index: 9999;
   padding: 10px;
-  background-color: #ffffffcb;
+  background-color: #ffffff;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
   border-radius: 10px;
   font-size: 16px;
@@ -53,6 +61,46 @@
   width: 325px;
   top: 2%;
   right: 2%;
+}
+.copyButtonEyes {
+  appearance: none;
+  background-color: #FAFBFC;
+  border: 1px solid rgba(27, 31, 35, 0.15);
+  border-radius: 6px;
+  box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0, rgba(255, 255, 255, 0.25) 0 1px 0 inset;
+  cursor: pointer;
+  height: 10px;
+  padding: 10px;
+  line-height: 0;
+  margin-top: 52px;
+  left: 190px;
+  bottom: 10px;
+  position: absolute;
+  display:inline-block;
+  font-family: Arial, sans-serif;
+  font-weight: normal;
+  font-size: 16px;
+
+ }
+ 
+.retryButtonEyes {
+  appearance: none;
+  background-color: #FAFBFC;
+  border: 1px solid rgba(27, 31, 35, 0.15);
+  border-radius: 6px;
+  box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0, rgba(255, 255, 255, 0.25) 0 1px 0 inset;
+  cursor: pointer;
+  height: 10px;
+  padding: 10px;
+  line-height: 0;
+  margin-top: 52px;
+  left: 20px;
+  bottom: 10px;
+  position: absolute;
+  display:inline-block;
+  font-family: Arial, sans-serif;
+  font-weight: normal;
+  font-size: 16px;
 }
 .copyButton {
     appearance: none;
@@ -65,11 +113,14 @@
     padding: 10px;
     line-height: 0;
     margin-top: 52px;
-    left: 205px;
+    left: 167px;
     bottom: 10px;
     position: absolute;
     display:inline-block;
     font-family: Arial, sans-serif;
+    font-weight: normal;
+    font-size: 12px;
+
    }
    
 .retryButton {
@@ -83,11 +134,13 @@
     padding: 10px;
     line-height: 0;
     margin-top: 52px;
-    left: 20px;
+    left: 33px;
     bottom: 10px;
     position: absolute;
     display:inline-block;
     font-family: Arial, sans-serif;
+    font-weight: normal;
+    font-size: 12px;
 }
 
 
