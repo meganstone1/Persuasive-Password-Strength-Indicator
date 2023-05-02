@@ -8,6 +8,7 @@
     left: 33%;
   }
 .strengthBox{
+  position: absolute;
   z-index: 9999;
     padding: 10px;
     background-color: #ffffff;
@@ -58,7 +59,7 @@
   white-space: pre-line;
   line-height: 26pt;
   font-family: Arial, sans-serif;
-  width: 325px;
+  width: 23%;
   top: 2%;
   right: 2%;
 }
@@ -73,7 +74,7 @@
   padding: 10px;
   line-height: 0;
   margin-top: 52px;
-  left: 190px;
+  left: 56%;
   bottom: 10px;
   position: absolute;
   display:inline-block;
@@ -94,7 +95,7 @@
   padding: 10px;
   line-height: 0;
   margin-top: 52px;
-  left: 20px;
+  left: 6%;
   bottom: 10px;
   position: absolute;
   display:inline-block;
