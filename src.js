@@ -154,6 +154,8 @@ if (window.location.href.indexOf("register?") > -1 || window.location.href.index
 
     var Sha1 = {};
 
+    //The SHA-1 hash function below is courtesy of Chris Veness
+    //(c) Chris Veness 2002-2014 / MIT Licence http://www.java2s.com/example/nodejs/security/sha1-hash-function-reference-implementation.html 
 
     /**
      * Generates SHA-1 hash of string.
@@ -294,8 +296,7 @@ if (window.location.href.indexOf("register?") > -1 || window.location.href.index
     if (typeof module != 'undefined' && module.exports) module.exports = Sha1; // CommonJs export
     if (typeof define == 'function' && define.amd) define([], function() { return Sha1; }); // AMD
 
-  //http://www.java2s.com/example/nodejs/security/sha1-hash-function-reference-implementation.html 
-
+  
 
 
 
